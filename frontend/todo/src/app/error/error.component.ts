@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
+  errorMessage: string = '404 error';
+
   constructor() { }
 
   ngOnInit(): void {

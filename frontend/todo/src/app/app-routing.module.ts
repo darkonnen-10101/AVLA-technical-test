@@ -5,14 +5,15 @@ import { LandingComponent } from './landing/landing.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RouteGuardService } from './service/route-guard.service';
 
 const routes: Routes = [
 
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'landing/:username', component: LandingComponent },
-  { path: 'todos', component: ListTodosComponent },
+  { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
+  { path: 'landing/:username', component: LandingComponent, canActivate: [RouteGuardService] },
+  { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
   { path: '**', component: ErrorComponent }
 
 ];

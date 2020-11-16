@@ -14,31 +14,35 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="todo")
+@Table(name = "todo")
 public class Todo {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="name", nullable = false, length = 20)
+
+	@Column(name = "name", length = 20)
 	private String name;
-	
-	@Column(name="description", nullable = false, length = 70)
+
+	@Column(name = "description", length = 70)
 	private String description;
-	
-	@Column(name="asignedUser", nullable = false, length = 70)
+
+	@Column(name = "asigned_user", length = 70)
 	private String asignedUser;
-	
-	@Column(name="completed", nullable = false)
+
+	@Column(name = "completed")
 	private boolean completed;
-	
+
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
+
+	public Todo() {
+
+	}
 	
 	@PrePersist
 	protected void onCreate() {
@@ -48,10 +52,6 @@ public class Todo {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
-	}
-	
-	public Todo(){
-		
 	}
 
 	public Integer getId() {
@@ -78,20 +78,20 @@ public class Todo {
 		this.description = description;
 	}
 
-	public boolean isCompleted() {
-		return completed;
-	}
-
-	public void setCompleted(boolean completed) {
-		this.completed = completed;
-	}
-	
 	public String getAsignedUser() {
 		return asignedUser;
 	}
 
 	public void setAsignedUser(String asignedUser) {
 		this.asignedUser = asignedUser;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
 	}
 
 	public Date getCreatedAt() {
@@ -109,6 +109,8 @@ public class Todo {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
 	
 	
+
 }

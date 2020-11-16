@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -24,6 +25,6 @@
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
   }
 }

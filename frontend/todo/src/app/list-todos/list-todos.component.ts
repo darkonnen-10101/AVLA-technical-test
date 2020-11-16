@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from '../common/todo';
+import { TodoDataService } from '../service/data/todo-data.service';
 
 @Component({
   selector: 'app-list-todos',
@@ -8,22 +10,43 @@ import { Todo } from '../common/todo';
 })
 export class ListTodosComponent implements OnInit {
 
-  todos = [
-    new Todo(1, 'todo1', false, new Date()),
-    new Todo(2, 'todo2', false, new Date()),
-    new Todo(3, 'todo3', false, new Date()),
-
-    // { id: 1, description: 'todo1' },
-    // { id: 2, description: 'todo2' },
-    // { id: 3, description: 'todo3' },
-  ];
-
-  // todo = {id: 1, description: 'todo1'};
+  todo: Todo = new Todo(0, '', '', false, '', new Date(), new Date());
+  todos: Todo[];
+  message: string;
+  username: string;
 
 
-  constructor() { }
+
+  constructor(private todoService: TodoDataService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.refreshTodos();
+    this.username = this.activatedRoute.snapshot.params['username'];
+  }
+
+  refreshTodos() {
+    this.todoService.retrieveAllTodos(this.username).subscribe(
+      response => {
+        console.log(response);
+        this.todos = response;
+      }
+    );
+  }
+
+  updateTodo(id: number) {
+    console.log(id);
+    this.router.navigate(['todos', id]);
+  }
+
+
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo(this.username, id).subscribe(
+      response => {
+        console.log(response);
+        this.message = 'Delete successful';
+        this.refreshTodos();
+      }
+    );
   }
 
 }

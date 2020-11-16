@@ -1,0 +1,31 @@
+<h2>TODO</h2>
+
+<div class="container">
+
+    <fieldset class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="todo.name" class="form-control" name="name" required="required" id="">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="description">Description</label>
+        <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required"
+            id="">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="Completed">Completed</label>
+        <input type="checkbox" [(ngModel)]="todo.completed" class="form-control" name="completed" id="">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="Asigned User">Asigned User</label>
+        <select name="asignedUser" [(ngModel)]="todo.asignedUser">
+            <option [value]="user" *ngFor="let user of users">{{user}}</option>
+        </select>
+    </fieldset>
+
+
+    <button (click)="saveTodo()" class="btn btn-success">Save</button>
+
+</div>

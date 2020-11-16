@@ -15,24 +15,45 @@ export class TodoComponent implements OnInit {
   username: string;
   users: string[] = ["user1", "user2", "user3"];
 
-  constructor(private todoService: TodoDataService, private activatedRoute: ActivatedRoute, private route: Router) { }
+  constructor(private todoService: TodoDataService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.username = this.activatedRoute.snapshot.params['username'];
-    console.log(`${this.username} | ${this.id}`);
-    this.todoService.retrieveTodo(this.username, this.id).subscribe(
-      data => this.todo = data
-    );
+    this.todo = new Todo(this.id, '', '', false, '', new Date(), new Date());
+    if (this.id != -1) {
+      // console.log(`${this.username} | ${this.id}`);
+      this.todoService.retrieveTodo(this.username, this.id).subscribe(
+        data => this.todo = data
+      );
+
+    }
   }
 
   saveTodo() {
-    this.todoService.updateTodo(this.username, this.id, this.todo).subscribe(
-      data => {
-        console.log(data);
-        this.route.navigate(['todos']);
-      }
-    );
+
+    if (this.id === -1) {
+
+      this.todoService.createTodo(this.username, this.todo).subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['todos']);
+        }
+      );
+
+    } else {
+      this.todoService.updateTodo(this.username, this.id, this.todo).subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['todos']);
+        }
+      );
+
+    }
+
   }
+
+
+
 
 }

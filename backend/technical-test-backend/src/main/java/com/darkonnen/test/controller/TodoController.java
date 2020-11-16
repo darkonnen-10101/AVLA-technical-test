@@ -1,6 +1,5 @@
 package com.darkonnen.test.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.darkonnen.test.exception.EntityNotFoundException;
 import com.darkonnen.test.model.Todo;
@@ -47,13 +45,13 @@ public class TodoController {
 	@PostMapping("/{username}/todos")
 	public ResponseEntity<Todo> create(@PathVariable("username") String username, @Valid @RequestBody Todo todo) {
 		Todo t = todoService.create(todo);
-//		return new ResponseEntity<Todo>(t, HttpStatus.OK);
+		return new ResponseEntity<Todo>(t, HttpStatus.OK);
 		
 //		----------------
 		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(t.getId()).toUri();
-		
-		return ResponseEntity.created(uri).build();
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(t.getId()).toUri();
+//		
+//		return ResponseEntity.created(uri).build();
 		
 	}
 	

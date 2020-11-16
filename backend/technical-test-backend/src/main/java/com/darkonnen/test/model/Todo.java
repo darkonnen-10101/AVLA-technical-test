@@ -110,7 +110,10 @@ public class Todo {
 		this.updatedAt = updatedAt;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Todo [asignedUser=" + asignedUser + "]";
+	}	
 	
 
 }

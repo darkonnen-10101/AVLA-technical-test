@@ -1,4 +1,4 @@
-package com.darkonnen.test.config;
+package com.darkonnen.rest.auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

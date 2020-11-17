@@ -8,6 +8,7 @@ public class TechnicalTestBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TechnicalTestBackendApplication.class, args);
+
 	}
 
 }

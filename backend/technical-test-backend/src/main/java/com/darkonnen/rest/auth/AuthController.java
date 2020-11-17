@@ -1,10 +1,8 @@
-package com.darkonnen.test.controller;
+package com.darkonnen.rest.auth;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.darkonnen.test.util.AuthBean;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

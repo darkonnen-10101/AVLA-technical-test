@@ -1,4 +1,4 @@
-package com.darkonnen.test.util;
+package com.darkonnen.rest.auth;
 
 public class AuthBean {
 

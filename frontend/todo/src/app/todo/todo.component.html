@@ -2,30 +2,41 @@
 
 <div class="container">
 
-    <fieldset class="form-group">
-        <label for="name">Name</label>
-        <input type="text" [(ngModel)]="todo.name" class="form-control" name="name" required="required" id="">
-    </fieldset>
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && name.invalid">
+        <p>Name must be 4 chars min.</p>
+    </div>
 
-    <fieldset class="form-group">
-        <label for="description">Description</label>
-        <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required"
-            id="">
-    </fieldset>
-
-    <fieldset class="form-group">
-        <label for="Completed">Completed</label>
-        <input type="checkbox" [(ngModel)]="todo.completed" class="form-control" name="completed" id="">
-    </fieldset>
-
-    <fieldset class="form-group">
-        <label for="Asigned User">Asigned User</label>
-        <select name="asignedUser" [(ngModel)]="todo.asignedUser">
-            <option [value]="user" *ngFor="let user of users">{{user}}</option>
-        </select>
-    </fieldset>
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && description.invalid">
+        <p>Description must be 6 chars min.</p>
+    </div>
 
 
-    <button (click)="saveTodo()" class="btn btn-success">Save</button>
+    <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+        <fieldset class="form-group">
+            <label for="name">Name</label>
+            <input type="text" #name="ngModel" [(ngModel)]="todo.name" class="form-control" name="name"
+                required="required" id="" minlength="4">
+        </fieldset>
 
+        <fieldset class="form-group">
+            <label for="description">Description</label>
+            <input type="text" #description="ngModel" [(ngModel)]="todo.description" class="form-control"
+                name="description" required="required" id="" minlength="6">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="Completed">Completed</label>
+            <input type="checkbox" [(ngModel)]="todo.completed" class="form-control" name="completed" id="">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="Asigned User">Asigned User</label>
+            <select name="asignedUser" [(ngModel)]="todo.asignedUser">
+                <option [value]="user" *ngFor="let user of users">{{user}}</option>
+            </select>
+        </fieldset>
+
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
 </div>

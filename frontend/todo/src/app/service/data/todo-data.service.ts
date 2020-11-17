@@ -25,7 +25,6 @@ export class TodoDataService {
     return this.http.post<Todo>(`http://localhost:8080/users/${username}/todos/`, todo);
   }
 
-
   deleteTodo(username: string, id: number) {
     return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`);
   }

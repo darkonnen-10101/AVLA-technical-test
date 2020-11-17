@@ -41,6 +41,8 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public Todo update(Todo todo) {
 		String default_user = todoRepository.query_asigned_user();
+		System.out.println("updating");
+
 		if(default_user == null) {
 			// Because if DB is empty, it does not assign any value.
 			// User must be registered in order to be assigned.

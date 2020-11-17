@@ -29,6 +29,7 @@ public class TodoController {
 	@Autowired
 	private TodoService todoService;
 	
+	
 	@GetMapping("/{username}/todos")
 	public ResponseEntity<List<Todo>> getAll(@PathVariable("username") String username) {
 		List<Todo> todos = todoService.getAll();

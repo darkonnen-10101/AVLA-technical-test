@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BasicAuthService } from '../service/basic-auth.service';
 import { HAuthService } from '../service/h-auth.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   // Router
 
-  constructor(private router: Router, private hAuthService: HAuthService) { }
+  constructor(private router: Router, private hAuthService: HAuthService, private basicAuthservice: BasicAuthService) { }
 
   ngOnInit(): void {
   }
@@ -40,5 +41,20 @@ export class LoginComponent implements OnInit {
 
 
   }
+
+  handleAuthLogin() {
+    this.basicAuthservice.executeAuthenticationService(this.username, this.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['landing', this.username]);
+          this.invalidLogin = false;
+        }, error => {
+          console.log(error);
+          this.invalidLogin = true;
+        }
+      )
+  }
+
 
 }

@@ -35,13 +35,7 @@ public class TodoServiceImpl implements TodoService {
 
 	@Override
 	public Todo create(Todo todo) {
-		return todoRepository.save(todo);
-	}
-
-	@Override
-	public Todo update(Todo todo) {
 		String default_user = todoRepository.query_asigned_user();
-		System.out.println("updating");
 
 		if(default_user == null) {
 			// Because if DB is empty, it does not assign any value.
@@ -56,6 +50,11 @@ public class TodoServiceImpl implements TodoService {
 			todo.setAsignedUser(default_user);
 		}
 
+		return todoRepository.save(todo);
+	}
+
+	@Override
+	public Todo update(Todo todo) {
 		return todoRepository.save(todo);
 	}
 

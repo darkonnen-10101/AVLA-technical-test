@@ -16,6 +16,8 @@ For this project, first I created a basic frontend with some views, because i'd 
 
 3. So, all things considered, in order to succesfully complete all requirements for this challenge, I'd to come up with a simple and clever implementation of an algorithm to select the **less overloaded "asigned_user"** attribute for the task. My way around this was to execute a native query ONLY when needed (when creating a new Todo without an user). I almost got it wrong by parsing all objects and sorting (yes, sorting) a `Entry hashmap` using something like a divide and conquer strategy. **BAD IDEA.**
 
+4. KISS principle -> Keep it short and simple was my main goal.
+
 ---
 
 ## Final words

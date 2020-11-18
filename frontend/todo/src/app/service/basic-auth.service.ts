@@ -70,7 +70,6 @@ export class BasicAuthService {
   }
 
 
-
   logout() {
     sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);

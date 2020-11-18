@@ -1,14 +1,50 @@
-<h2>Login</h2>
-
 <div class="container">
     <div class="alert alert-warning" *ngIf='invalidLogin'>{{ errorMessage }}</div>
 
 </div>
 
-
-
-<div>
-    Username: <input type="text" name="username" id="" [(ngModel)]="username"> <!-- value="{{ password }}" -->
+<div class="container text-center mt-5">
+    <h2>LOGIN</h2>
+    <br>
+    Username: <input type="text" name="username" id="" [(ngModel)]="username">
+    <br>
+    <br> <!-- value="{{ password }}" -->
     Password: <input type="password" name="password" id="" [(ngModel)]="password">
+    <p></p>
     <button (click)=handleJWTAuthLogin() class="btn btn-success">Login </button>
+</div>
+
+<div class="container mt-5 text-center">
+    <h3>Login info, authenticated with JWT</h3>
+</div>
+
+
+<div class="container mt-3 d-flex justify-content-center">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>user1</td>
+                <td>password1</td>
+            </tr>
+            <tr>
+                <td>user2</td>
+                <td>password2</td>
+            </tr>
+            <tr>
+                <td>user3</td>
+                <td>password3</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
 </div>

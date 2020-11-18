@@ -10,8 +10,8 @@ import { HAuthService } from '../service/h-auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: string = 'user1';
-  password: string = 'password';
+  username: string = '';
+  password: string = '';
   errorMessage: string = 'Invalid credentials';
   invalidLogin: boolean = false;
 
@@ -41,6 +41,21 @@ export class LoginComponent implements OnInit {
 
 
   }
+
+  handleJWTAuthLogin() {
+    this.basicAuthservice.executeJWTAuthenticationService(this.username, this.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['landing', this.username]);
+          this.invalidLogin = false;
+        }, error => {
+          console.log(error);
+          this.invalidLogin = true;
+        }
+      )
+  }
+
 
   handleAuthLogin() {
     this.basicAuthservice.executeAuthenticationService(this.username, this.password)

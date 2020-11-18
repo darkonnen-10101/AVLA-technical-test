@@ -17,21 +17,32 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 	static {
 		inMemoryUserList.add(new JwtUserDetails(1L, "in28minutes",
 				"$2a$10$3zHzb.Npv1hfZbLEU5qsdOju/tk2je6W6PnNnY.c1ujWPcZh4PL6e", "ROLE_USER_2"));
+		inMemoryUserList.add(new JwtUserDetails(2L, "user1",
+				"$2a$10$YO4h7imOI7U9kzMT/U7laehZtUAsh6Q3NRc1aSFZM7L/YFsDY3Ngy", "ROLE_USER_1"));
+		inMemoryUserList.add(new JwtUserDetails(2L, "user2",
+				"$2a$10$iUQN.92pYsv5OCDW0NI6Rey00eSFcXdbAhRO3R75i3G13ZW6puEDu", "ROLE_USER_2"));
+		inMemoryUserList.add(new JwtUserDetails(2L, "user3",
+				"$2a$10$XuDGpXAIeBF9sTg5i8UlvugnjsAh7ZDm9z0fb/WFWY8TQUQSHhofG", "ROLE_USER_3"));
 	}
 
 	/*
-	 * $2a$10$cEdGIgJVQTNnZ7YQqi7osOM7VEktMUk63BCxTt1m4u15O1HlHBYO2
-	 * $2a$10$Ohq9.k02Hm5GCGywGsJqDuGqhHKA9PPhXWDTt2B56eURP1ykRHU3C
-	 * $2a$10$jYV8eomKf.R6XPLJGsrJSOYHk9hOJOBGwqnbMKinDkUTFz.OBZ5ea
-	 * $2a$10$M.sFixuptxQYNfqffVT/.eljG1s/.pvE1A/jdE6hZqs4.qazbEdMG
-	 * $2a$10$s.FXmSCmEKCifnXjpjYG9eVPAFOZ3UqraQZB/NYZY1PkZp4kRMVZ.
-	 * $2a$10$tKmg.VM3H29UjPd8kR2Rc.8auHu.gVdVv9jyj7pT6bWfOBfffENMy
-	 * $2a$10$DG7gPBblJV0K1uj0wdSUYen4bpM4Y2UfaI18aadcelq9VmtgONOXC
-	 * $2a$10$8q8Lzjl9xNSdi5PHlJ2UTe2ToqxGz1eZtfrOV7PWt0oaeLG/SLrMi
-	 * $2a$10$AzR/F1DBOiYHXYHP6V5HfOmlF/KgJmEaVIwIKB8KRCb1MUiXO8W7y
-	 * $2a$10$XoUs1oVToQJUUXiRsSMMoeYcztTbBz/iARa5b38f71CAEnmwRvMwW
-	 * $2a$10$3QpFiN.FHaayxDbb6/r7P.yaISqsmNWPhHGHcJPblefMV3vKK35CS
-	 * 
+	 * Password 1
+	 * $2a$10$YO4h7imOI7U9kzMT/U7laehZtUAsh6Q3NRc1aSFZM7L/YFsDY3Ngy
+	 * $2a$10$qsnPQcr3wWGjZw3UhLulReArq08.U932J8NT4A8y2GHamf4qBe.5C
+	 * $2a$10$xRpDpbM64TlYB/rLstYWGOVzvLOkHjrm0YVIYlEfrVa3aoW5gEsqO
+	 */
+
+	/*
+	 * Password 2 $2a$10$iUQN.92pYsv5OCDW0NI6Rey00eSFcXdbAhRO3R75i3G13ZW6puEDu
+	 * $2a$10$DXR//og0xkUaIITtjF0BX.Gfui.YP8Y96N7R4RU57SBEFRA0w22Ja
+	 * $2a$10$6Zrd/IvlzHM0NTRw.PpYiuhbFe3ZS9wEBZhYaRDxJUawWMzGo7F/6
+	 */
+
+	/*
+	 * Password 3
+	 * $2a$10$OqAW/Qeyx.mpw48YstfjDuJZD8W9V7aejGlHutOQIEwIg8cQ/Bsym
+	 * $2a$10$7nFRMA.rzaOcPM2xLPYgNONC0Nu8JxsoXeJ5T0uXxClemcFS1oMcS
+	 * $2a$10$XuDGpXAIeBF9sTg5i8UlvugnjsAh7ZDm9z0fb/WFWY8TQUQSHhofG
 	 */
 
 	@Override

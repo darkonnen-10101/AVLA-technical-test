@@ -20,9 +20,9 @@ For this project, first I created a basic frontend with some views, because i'd 
 
 ## Final words
 
-I find it very easy to create all `CRUD` functionality in a monolithic application, using `Thymeleaf` or `JSP`. Even creating an `API` to expose some endpoints, is fun and requires little effort to do the basics of it. The difficult part for me was the frontend. Typescript is elegant and I like it, but has its own ways to do certain this, like working with `http.headers` and receiving `data`. 
+I find it very easy to create all `CRUD` functionality in a monolithic application, using `Thymeleaf` or `JSP`. Even creating an `API` to expose some endpoints, it's fun and requires little effort to do the basics of it. The difficult part for me was the frontend. Typescript is elegant and I like it, but has its own ways to do certain this, like working with `http.headers` and receiving `data`. 
 
-What else can I say, my main problems for this challenge was `CORS`. I got many CORS exceptions for different reasons in the frontend and backend, but I work my way around it.
+What else can I say, my main problems for this challenge was `CORS`. I got many CORS exceptions for different reasons in the frontend and backend, but I worked out my way around it.
 
 
 ## Goodbye

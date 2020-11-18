@@ -11,7 +11,7 @@ For this project, first I created a basic frontend with some views, because i'd 
 1. There was no need for an User entity for this `CRUD` webapp. Only login functionality (and logout to destroy current session), without registry. **JWT and Spring Security** needed no User entity to achieve this.
 
 
-2. The static list of users were only a * <select> * option in the frontend that sets the corresponding "string" attribute on the Todo entity. It makes sense to do it like this instead of making a **@ManyToMany relationship** with another entity or something like that. Database normalization was not an issue or concern for this technical test.
+2. The static list of users were only a `select` option in the frontend that sets the corresponding "string" attribute on the Todo entity. It makes sense to do it like this instead of making a **@ManyToMany relationship** with another entity or something like that. Database normalization was not an issue or concern for this technical test.
 
 
 3. So, all things considered, in order to succesfully complete all requirements for this challenge, I'd to come up with a simple and clever implementation of an algorithm to select the **less overloaded "asigned_user"** attribute for the task. My way around this was to execute a native query ONLY when needed (when creating a new Todo without an user). I almost got it wrong by parsing all objects and sorting (yes, sorting) a `Entry hashmap` using something like a divide and conquer strategy. **BAD IDEA.**
